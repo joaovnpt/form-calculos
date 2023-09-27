@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bháskara</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <form>
+        <label for="txt-a">Valor de A:</label>
+        <input type="number" id="txt-a"> <br>
+        <br>
+        <label for="txt-b">Valor de B:</label>
+        <input type="number" id="txt-b"> <br>
+        <br>
+        <label for="txt-c">Valor de C:</label>
+        <input type="number" id="txt-c"> <br>
+        <br>
+        <div id="resultado">
+
+        </div>
+        <input type="button" id="btn-calc" value="calcular" onclick="calcular()">
+    </form>
+
+    <script>
+        function calcular() {
+            let a = Number(document.getElementById("txt-a").value);
+            let b = Number(document.getElementById("txt-b").value);
+            let c = Number(document.getElementById("txt-c").value);
+
+            let delta = b ** 2 - (4 * a * c);
+
+            if (delta < 0) alert("A equação não pôde ser completa, delta é menor que 0.");
+            else {
+                let xi = (-b + Math.sqrt(delta)) / (2 * a);
+                let xii = (-b - Math.sqrt(delta)) / (2 * a);
+
+                document.getElementById("resultado").innerHTML = `<p> x1 = ${xi} </p> <p> x2 = ${xii} </p>`
+            }
+        }
+    </script>
+</body>
+
+</html>
